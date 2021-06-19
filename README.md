@@ -21,7 +21,7 @@ The UKBioPick allows extraction of interested UK Biobank (UKBB) phenotypes.
 You must supply at least [4] arguments when running a UKBioPick!
 
 Arguments                         | Description                      
---------------------------------- | -------------------------------- 
+--------------------------------- | --------------------------------
 arg1                              | UKBB phenotypic tab file        
 arg2                              | Field ID and Field file         
 arg3                              | Path to output directory         
@@ -33,6 +33,14 @@ You can run **UKBioPick** using the following command:
 ```
 bash run_UKBioPick.sh [arg1:UKBB_phenotypics_tab_file] [arg2:field_ID_file] [arg3:output_directory] [arg4:project_name]
 ```
+--------------
+
+### Available UKBB phenotypes at dhl_ec (UMC Utrecht)
+
+--------------
+
+### Slides
+These slide have information about UKBB phenotypes at dhl_ec. Cleck here to view slides. 
 --------------
 
 ### Contact
