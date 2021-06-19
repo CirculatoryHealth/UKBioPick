@@ -40,7 +40,7 @@ bash run_UKBioPick.sh [arg1:UKBB_phenotypics_tab_file] [arg2:field_ID_file] [arg
 --------------
 
 ### Slides
-These slide have information about UKBB phenotypes at dhl_ec. Cleck here to view slides. 
+These slide have information about UKBB phenotypes at dhl_ec. [Click here to view slides]. 
 
 --------------
 
