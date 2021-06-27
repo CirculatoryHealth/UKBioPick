@@ -1,16 +1,16 @@
 FieldID	Field
-22420	LV ejection fraction
+22420	LV_ejection_fraction
 31	Sex
-33	Date of birth
-34	Year of birth
-35	Was blood sampling attempted
-36	Blood pressure device ID
-37	Blood pressure manual sphygmomanometer device ID
-44	Tape measure device ID
-46	Hand grip strength (left)
-47	Hand grip strength (right)
-48	Waist circumference
-49	Hip circumference
-400 Time to complete round
-1498 Coffee intake
-3166 Time blood sample collected
+33	Date_of_birth
+34	Year_of_birth
+35	Was_blood_sampling_attempted
+36	Blood_pressure_device_ID
+37	Blood_pressure_manual_sphygmomanometer_device_ID
+44	Tape_measure_device_ID
+46	Hand_grip_strength_(left)
+47	Hand_grip_strength_(right)
+48	Waist_circumference
+49	Hip_circumference
+400	Time_to_complete_round
+1498	Coffee_intake
+3166	Time_blood_sample_collected
