@@ -40,7 +40,7 @@ bash run_UKBioPick.sh [arg1:UKBB_phenotypics_tab_file] [arg2:field_ID_file] [arg
 --------------
 
 ### Slides
-These slide have information about UKBB phenotypes at dhl_ec. [Click here to view slides]. 
+These slide have information about UKBB phenotypes at dhl_ec. [Click here to view slides].
 
 --------------
 
@@ -51,16 +51,3 @@ If you have any suggestions for improvement, discover bugs, etc. please create a
 Abdulrahman Alasiri | a.i.alasiri [at] umcutrecht.nl
 
 --------------
-
-#### CC-BY-SA-4.0 License
-##### Copyright (c) 2020 University Medical Center Utrecht
-
-Creative Commons Attribution-ShareAlike 4.0 International Public License
-
-By exercising the Licensed Rights (defined in the [LICENSE](LICENSE)), you accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License ("Public License"). To the extent this Public License may be interpreted as a contract, you are granted the Licensed Rights in consideration of your acceptance of these terms and conditions, and the Licensor grants you such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Reference: https://choosealicense.com/licenses/cc-by-sa-4.0/#.
