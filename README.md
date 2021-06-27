@@ -51,3 +51,5 @@ If you have any suggestions for improvement, discover bugs, etc. please create a
 Abdulrahman Alasiri | a.i.alasiri [at] umcutrecht.nl
 
 --------------
+
+### License and copyright
