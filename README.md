@@ -12,7 +12,7 @@ The UKBioPick allows extraction of interested UK Biobank (UKBB) phenotypes from 
 - `Bash`
 - `Perl`
 - UKBB phenotypic tab-delimited file (ukbxxxx.tab)
-- Create a tab-separated file contains Field ID (column1) and Field (column2) (see example [_**here**_]()). You can select Field ID and Field for each UKBB phenotypes in the [UKBB data dictionary Data_Dictionary_Showcase](https://biobank.ndph.ox.ac.uk/~bbdatan/Data_Dictionary_Showcase.csv).  
+- Create a tab-separated file contains Field ID (column1) and Field (column2) (see example [_**here**_](data/Field_ID.txt)). You can select Field ID and Field for each UKBB phenotypes in the [UKBB data dictionary Data_Dictionary_Showcase](https://biobank.ndph.ox.ac.uk/~bbdatan/Data_Dictionary_Showcase.csv).  
 
 
 ## Usage
@@ -35,7 +35,7 @@ You can run **UKBioPick** using the following command:
 ## Outputs
 **UKBioPick** generates 2 output files:  
 - *<project_name>_ ukb_selected_phenotypes.tab*: contains extracted phenotypes in tab-delimited file (similar to original tab file "ukbxxxx.tab").
-- *<project_name>_ ukb_selected_phenotypes.info*: shows information about phenotypes availability in the ukbxxxx.tab file, number of measure for each phenotype, and column location on both original and extracted tab file. [Click here to see example]()
+- *<project_name>_ ukb_selected_phenotypes.info*: shows information about phenotypes availability in the ukbxxxx.tab file, number of measure for each phenotype, and column location on both original and extracted tab file. [Click here to see example](data/ukbxxxxx_ukb_phenotypes.info)
 
 
 --------------
