@@ -31,15 +31,26 @@ You can run **UKBioPick** using the following command:
 ```
 **bash run_UKBioPick.sh** [arg1:UKBB_phenotypics_tab_file] [arg2:field_ID_file] [arg3:output_directory] [arg4:project_name]
 ```
+
+## Outputs
+**UKBioPick** generates 2 output files:  
+- *<project_name>_ ukb_selected_phenotypes.tab*: contains extracted phenotypes in tab-delimited file (similar to original tab file "ukbxxxx.tab").
+- *<project_name>_ ukb_selected_phenotypes.info*: shows information about phenotypes availability in the ukbxxxx.tab file, number of measure for each phenotype, and column location on both original and extracted tab file. [Click here to see example]()
+
+
 --------------
 
 ### Available UKBB phenotypes at dhl_ec (UMC Utrecht)  
-The lates version of UKBB phenotypes file (ukbxxxx.tab) in the HPC is
+- The lates version of UKBB phenotypes file (ukbxxxx.tab) in the HPC is `ukb44641.tab`.   
+- You can find the `ukb44641.tab` in this path.   
+```
+/hpc/dhl_ec/data/ukbiobank/phenotypic/ukb44641.tab
+```
 
 ##
 
 ### Slides
-These slide have information about UKBB phenotypes at dhl_ec. [Click here to view slides].
+These slides have information about UKBB phenotypes at dhl_ec. [Click here to view slides](https://docs.google.com/presentation/d/1puiKuASZytYSQGJS6kJ629CmGbuVUW8pcx1X5H1gJAI/edit?usp=sharing).
 
 ##
 
@@ -53,14 +64,6 @@ Abdulrahman Alasiri | a.i.alasiri [at] umcutrecht.nl
 
 ### License and copyright
 
-<table>
-<tr>
-<td>
-
 [MIT License](LICENSE)
 
 Copyright (c) 2021-2031 Abdulrahman Alasiri
-
-</td>
-</tr>
-</table>
