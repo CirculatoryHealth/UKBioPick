@@ -1,6 +1,6 @@
 UKBioPick
 ============
-[![License](https://img.shields.io/badge/license-CC--BY--SA--4.0-orange)](https://choosealicense.com/licenses/cc-by-sa-4.0)
+[![License](https://img.shields.io/badge/license-MIT-orange)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/CirculatoryHealth/LoFTK)
 
 The UKBioPick allows extraction of interested UK Biobank (UKBB) phenotypes from tab-delimited phenotypic file (ukbxxxx.tab).
