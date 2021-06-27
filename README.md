@@ -29,7 +29,7 @@ arg4                              | Project name
 You can run **UKBioPick** using the following command:
 
 ```
-**bash run_UKBioPick.sh** [arg1:UKBB_phenotypics_tab_file] [arg2:field_ID_file] [arg3:output_directory] [arg4:project_name]
+bash run_UKBioPick.sh [arg1:UKBB_phenotypics_tab_file] [arg2:field_ID_file] [arg3:output_directory] [arg4:project_name]
 ```
 
 ## Outputs
