@@ -13,7 +13,7 @@ The UKBioPick allows extraction of interested UK Biobank (UKBB) phenotypes.
 ### Requirements
 - `Bash`
 - UKBB phenotypic tab-delimited file (ukbxxxx.tab)
-- Create a file contains Field ID (column1) and Field (column2) with tab separated. You can find them in the [UKBB data dictionary](https://biobank.ndph.ox.ac.uk/~bbdatan/Data_Dictionary_Showcase.csv).  
+- Create a tab-separated file contains Field ID (column1) and Field (column2) (see example [_**here**_]()). You can select Field ID and Field for each UKBB phenotypes in the [UKBB data dictionary Data_Dictionary_Showcase](https://biobank.ndph.ox.ac.uk/~bbdatan/Data_Dictionary_Showcase.csv).  
 
 --------------
 
@@ -22,7 +22,7 @@ You must supply at least [4] arguments when running a UKBioPick!
 
 Arguments                         | Description                      
 --------------------------------- | --------------------------------
-arg1                              | UKBB phenotypic tab file        
+arg1                              | UKBB phenotypic tab file (ukbxxxx.tab)       
 arg2                              | Field ID and Field file         
 arg3                              | Path to output directory         
 arg4                              | Project name                    
@@ -31,12 +31,12 @@ arg4                              | Project name
 You can run **UKBioPick** using the following command:
 
 ```
-bash run_UKBioPick.sh [arg1:UKBB_phenotypics_tab_file] [arg2:field_ID_file] [arg3:output_directory] [arg4:project_name]
+**bash run_UKBioPick.sh** [arg1:UKBB_phenotypics_tab_file] [arg2:field_ID_file] [arg3:output_directory] [arg4:project_name]
 ```
 --------------
 
 ### Available UKBB phenotypes at dhl_ec (UMC Utrecht)
-
+The lates version of UKBB phenotypes file (ukbxxxx.tab) in the HPC is
 --------------
 
 ### Slides
@@ -56,4 +56,4 @@ Abdulrahman Alasiri | a.i.alasiri [at] umcutrecht.nl
 
 [MIT License](LICENSE)
 
-Copyright (c) 2021 Abdulrahman Alasiri
+Copyright (c) 2021-2031 Abdulrahman Alasiri
