@@ -53,3 +53,7 @@ Abdulrahman Alasiri | a.i.alasiri [at] umcutrecht.nl
 --------------
 
 ### License and copyright
+
+[MIT License](LICENSE)
+
+Copyright (c) 2021 Abdulrahman Alasiri
