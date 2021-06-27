@@ -1,0 +1,20 @@
+FieldID	Field
+22420	LV ejection fraction
+31	Sex
+33	Date of birth
+34	Year of birth
+35	Was blood sampling attempted
+36	Blood pressure device ID
+37	Blood pressure manual sphygmomanometer device ID
+38	Hand grip dynamometer device ID
+39	Height measure device ID
+40	Manual scales device ID
+41	Seating box device ID
+42	Spirometer device ID
+43	Impedance device ID
+44	Tape measure device ID
+45	Heel ultrasound device id
+46	Hand grip strength (left)
+47	Hand grip strength (right)
+48	Waist circumference
+49	Hip circumference
