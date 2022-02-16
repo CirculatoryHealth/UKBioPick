@@ -35,7 +35,7 @@ function echobold { #'echobold' is the function name
     echo -e "${BOLD}${1}${NONE}" # this is whatever the function needs to execute, note ${1} is the text for echo
 }
 function echoitalic {
-    echo -e "${ITALIC}${1}${NONE}"
+    echo -e "${ITALIC}${CYAN}${1}${NONE}"
 }
 function echonooption {
     echo -e "${OPAQUE}${RED}${1}${NONE}"
@@ -54,7 +54,7 @@ function echoerrorflashnooption {
     echo -e "${YELLOW}${BOLD}${FLASHING}${1}${NONE}"
 }
 function importantnote {
-    echo -e "${CYAN}${1}${NONE}"
+    echo -e "${PURPLE}${1}${NONE}"
 }
 
 script_copyright_message() {
@@ -111,6 +111,7 @@ else
     INPUT_FIELD_ID=$2
     OUTPUT=$3
     OUTPUT_FILE_NAME=$4
+    OUTPUTFILE=${OUTPUT}/${OUTPUT_FILE_NAME}_
 
 ### External Tools
     SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -118,42 +119,46 @@ else
     TRANSPOSE=${SCRIPT_DIR}/bin/transpose1.pl
 
 # transpose header of the origin tab file
-    head -1 ${INPUT_TAB_FAILE} > ${OUTPUT}/heade_1_original.tab
-    ${TRANSPOSE} ${OUTPUT}/heade_1_original.tab > ${OUTPUT}/heade_1_original.tab_trans
+    head -1 ${INPUT_TAB_FAILE} > ${OUTPUTFILE}heade_1_original.tab
+    ${TRANSPOSE} ${OUTPUTFILE}heade_1_original.tab > ${OUTPUTFILE}heade_1_original.tab_trans
 
 # column location for phenotypes
-    echo "Column.No.original FieldID" > ${OUTPUT}/pheno_location_v1
-    awk '{print $1,$1}' ${OUTPUT}/heade_1_original.tab_trans | sed 's/\./ /' | sed 's/\./ /' | cat -n| awk '{print $1,$3}' | sort -k2 -u | sed '$d' >> ${OUTPUT}/pheno_location_v1
-# number of measures 
-    echo "NO.measure FieldID" > ${OUTPUT}/pheno_NO.measure_v1
-    awk '{print $1,$1}' ${OUTPUT}/heade_1_original.tab_trans | sed 's/\./ /' | sed 's/\./ /' | cut -d' ' -f2 | uniq -c | awk '{print $1, $2}' >> ${OUTPUT}/pheno_NO.measure_v1
+    echo "Column.No.original FieldID" > ${OUTPUTFILE}pheno_location_v1
+    awk '{print $1,$1}' ${OUTPUTFILE}heade_1_original.tab_trans | sed 's/\./ /' | sed 's/\./ /' | cat -n| awk '{print $1,$3}' | sort -k2 -u | sed '$d' >> ${OUTPUTFILE}pheno_location_v1
+# number of measures
+    echo "NO.measure FieldID" > ${OUTPUTFILE}/pheno_NO.measure_v1
+    awk '{print $1,$1}' ${OUTPUTFILE}heade_1_original.tab_trans | sed 's/\./ /' | sed 's/\./ /' | cut -d' ' -f2 | uniq -c | awk '{print $1, $2}' >> ${OUTPUTFILE}pheno_NO.measure_v1
 
 # phenotypes information file
-    echoerrorflash "Extracting required phenotypes from ${INPUT_TAB_FAILE}"
-    sed 's/ /\_/g' ${INPUT_FIELD_ID} > ${OUTPUT}/f.eid_modif_v1 #replace spaces between wards
-# merge number of measures and input file 
-    ${MERGE} --file1 ${OUTPUT}/pheno_NO.measure_v1 --file2 ${OUTPUT}/f.eid_modif_v1 --index FieldID > ${OUTPUT}/output2.1_v1
+    echoerrorflash "Extracting required phenotypes from"
+    importantnote ${INPUT_TAB_FAILE}
+    echo ""
+    sed 's/ /\_/g' ${INPUT_FIELD_ID} > ${OUTPUTFILE}f.eid_modif_v1 #replace spaces between wards
+# merge number of measures and input file
+    ${MERGE} --file1 ${OUTPUTFILE}pheno_NO.measure_v1 --file2 ${OUTPUTFILE}f.eid_modif_v1 --index FieldID > ${OUTPUTFILE}output2.1_v1
 # merge column location with previous
-    ${MERGE} --file1 ${OUTPUT}/pheno_location_v1 --file2 ${OUTPUT}/output2.1_v1 --index FieldID | sed  's/NA/0/g' | awk '$3 != 0 && $4 != 0 {print $0}' | sort -k 1n > ${OUTPUT}/output2.2_v1
+    ${MERGE} --file1 ${OUTPUTFILE}pheno_location_v1 --file2 ${OUTPUTFILE}output2.1_v1 --index FieldID | sed  's/NA/0/g' | awk '$3 != 0 && $4 != 0 {print $0}' | sort -k 1n > ${OUTPUTFILE}output2.2_v1
 
-## Extract interest phenotypes from origin tab file 
-    VAR=$(tail -n +2 ${OUTPUT}/output2.2_v1 | awk '{print $4,$4+$3-1}' | sed 's/ /-/g' | ${TRANSPOSE} | sed 's/\t/,/g')
+## Extract interest phenotypes from origin tab file
+    VAR=$(tail -n +2 ${OUTPUTFILE}output2.2_v1 | awk '{print $4,$4+$3-1}' | sed 's/ /-/g' | ${TRANSPOSE} | sed 's/\t/,/g')
     cut -f1,$VAR ${INPUT_TAB_FAILE} > ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.tab
-    echoerrorflash "Just create an tab file contains your interest phenotypes in UKB: ${OUTPUT_FILE_NAME}_ukb_phenotypes.info"
+    echoerrorflash "Just create an tab file contains your interest phenotypes in UKB:"
+    importantnote "${OUTPUT_FILE_NAME}_ukb_phenotypes.tab"
+    echo ""
 
 # transpose header of the output tab file
-    head -1 ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.tab > ${OUTPUT}/heade_1_output.tab
-    ${TRANSPOSE} ${OUTPUT}/heade_1_output.tab > ${OUTPUT}/heade_1_output.tab_trans
+    head -1 ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.tab > ${OUTPUTFILE}heade_1_output.tab
+    ${TRANSPOSE} ${OUTPUTFILE}heade_1_output.tab > ${OUTPUTFILE}heade_1_output.tab_trans
 # column location for phenotypes in output tab
-    echo "Column.No.output.tab FieldID" > ${OUTPUT}/pheno_location_v2
-    awk '{print $1,$1}' ${OUTPUT}/heade_1_output.tab_trans | sed 's/\./ /' | sed 's/\./ /' | cat -n| awk '{print $1,$3}' | sort -k2 -u | sed '$d' >> ${OUTPUT}/pheno_location_v2
-    ${MERGE} --file1 ${OUTPUT}/pheno_location_v2 --file2 ${OUTPUT}/output2.2_v1 --index FieldID | sed  's/NA/0/g' | awk '$3 != 0 && $4 != 0 && $5 != 0 {print $0}' | sort -k 1n > ${OUTPUT}/output2.3_v1
+    echo "Column.No.output.tab FieldID" > ${OUTPUTFILE}pheno_location_v2
+    awk '{print $1,$1}' ${OUTPUTFILE}heade_1_output.tab_trans | sed 's/\./ /' | sed 's/\./ /' | cat -n| awk '{print $1,$3}' | sort -k2 -u | sed '$d' >> ${OUTPUTFILE}pheno_location_v2
+    ${MERGE} --file1 ${OUTPUTFILE}pheno_location_v2 --file2 ${OUTPUTFILE}output2.2_v1 --index FieldID | sed  's/NA/0/g' | awk '$3 != 0 && $4 != 0 && $5 != 0 {print $0}' | sort -k 1n > ${OUTPUTFILE}output2.3_v1
 
 ## Print output information file
     echoerrorflash "Processing the phenotypes information file"
     echo "############## Available phenotypes on ${INPUT_TAB_FAILE} ##############" > ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
     echo  >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
-    cat ${OUTPUT}/output2.3_v1 >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
+    cat ${OUTPUTFILE}output2.3_v1 >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
 
     echo  >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
     echo  >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
@@ -161,25 +166,27 @@ else
     echo "############## Unavailable phenotypes  on ${INPUT_TAB_FAILE} ##############" >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
     echo  >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
 
-    awk '$3 == "NA" {print $1,$2}' ${OUTPUT}/output2.1_v1 >>  ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
-    echoerrorflash "Just create an info file contains more details: ${OUTPUT_FILE_NAME}_ukb_phenotypes.info"
+    awk '$3 == "NA" {print $1,$2}' ${OUTPUTFILE}output2.1_v1 >>  ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
+    echoerrorflash "Just create an info file contains more details:"
+    importantnote "${OUTPUT_FILE_NAME}_ukb_phenotypes.info"
+    echo ""
 
 #####
 
-    rm ${OUTPUT}/heade_1_original.tab
-    rm ${OUTPUT}/heade_1_original.tab_trans
-    rm ${OUTPUT}/pheno_location_v1
-    rm ${OUTPUT}/pheno_NO.measure_v1
-    rm ${OUTPUT}/f.eid_modif_v1
-    rm ${OUTPUT}/output2.1_v1
-    rm ${OUTPUT}/output2.2_v1
-    rm ${OUTPUT}/heade_1_output.tab
-    rm ${OUTPUT}/heade_1_output.tab_trans
-    rm ${OUTPUT}/pheno_location_v2
-    rm ${OUTPUT}/output2.3_v1
+    rm ${OUTPUTFILE}heade_1_original.tab
+    rm ${OUTPUTFILE}heade_1_original.tab_trans
+    rm ${OUTPUTFILE}pheno_location_v1
+    rm ${OUTPUTFILE}pheno_NO.measure_v1
+    rm ${OUTPUTFILE}f.eid_modif_v1
+    rm ${OUTPUTFILE}output2.1_v1
+    rm ${OUTPUTFILE}output2.2_v1
+    rm ${OUTPUTFILE}heade_1_output.tab
+    rm ${OUTPUTFILE}heade_1_output.tab_trans
+    rm ${OUTPUTFILE}pheno_location_v2
+    rm ${OUTPUTFILE}output2.3_v1
 
     echo ""
-    echoerrorflash "Job is DONE! Thank you for using UKBioPick :)"
+    echoitalic "Job is DONE! Thank you for using UKBioPick :)"
     echo ""
     echo ""
     echo ""
