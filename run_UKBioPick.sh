@@ -158,7 +158,7 @@ else
     echoerrorflash "Processing the phenotypes information file"
     echo ""
     AVAIL=$(tail -n +2 ${OUTPUTFILE}output2.3_v1 | wc -l)
-    echo "#### Available phenotypes \(n = ${AVAIL}\) on ${INPUT_TAB_FAILE} ####" > ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
+    echo "#### Available phenotypes (n = ${AVAIL}) on ${INPUT_TAB_FAILE} ####" > ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
     echo  >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
     cat ${OUTPUTFILE}output2.3_v1 >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
 
@@ -166,7 +166,7 @@ else
     echo  >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
     echo  >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
     NOT_AVAIL=$(awk '$3 == "NA" {print $1,$2}' ${OUTPUTFILE}output2.1_v1 | wc -l)
-    echo "#### Unavailable phenotypes \(n = ${NOT_AVAIL}\) on ${INPUT_TAB_FAILE} ####" >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
+    echo "#### Unavailable phenotypes (n = ${NOT_AVAIL}) on ${INPUT_TAB_FAILE} ####" >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
     echo  >> ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
 
     awk '$3 == "NA" {print $1,$2}' ${OUTPUTFILE}output2.1_v1 >>  ${OUTPUT}/${OUTPUT_FILE_NAME}_ukb_phenotypes.info
