@@ -126,7 +126,7 @@ else
     echo "Column.No.original FieldID" > ${OUTPUTFILE}pheno_location_v1
     awk '{print $1,$1}' ${OUTPUTFILE}heade_1_original.tab_trans | sed 's/\./ /' | sed 's/\./ /' | cat -n| awk '{print $1,$3}' | sort -k2 -u | sed '$d' >> ${OUTPUTFILE}pheno_location_v1
 # number of measures
-    echo "NO.measure FieldID" > ${OUTPUTFILE}/pheno_NO.measure_v1
+    echo "NO.measure FieldID" > ${OUTPUTFILE}pheno_NO.measure_v1
     awk '{print $1,$1}' ${OUTPUTFILE}heade_1_original.tab_trans | sed 's/\./ /' | sed 's/\./ /' | cut -d' ' -f2 | uniq -c | awk '{print $1, $2}' >> ${OUTPUTFILE}pheno_NO.measure_v1
 
 # phenotypes information file
