@@ -88,7 +88,7 @@ echobold "+                                                                     
 echobold "+ * Written by  : Abdulrahman Alasiri                                                                   +"
 echobold "+ * E-mail      : a.i.alasiri@umcutrecht.nl                                                             +"
 echobold "+ * Last update : 2021-06-17                                                                            +"
-echobold "+ * Version     : 1.0.0                                                                                 +"
+echobold "+ * Version     : 1.1.0                                                                                 +"
 echobold "+                                                                                                       +"
 echobold "+ * Description : This script will extract your interested UKBB phenotypes according to your list of    +"
 echobold "+                 Field ID and Field name using the UKBB phenotypic tab file.                           +"
